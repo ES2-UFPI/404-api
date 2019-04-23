@@ -1,17 +1,7 @@
 from django.shortcuts import render
 from rest_framework import generics
-from .models import Cliente, Portal
-from .serializers import ClienteSerializer, PortalSerializer
-
-class ClienteList(generics.ListCreateAPIView):
-
-    queryset = Cliente.objects.all()
-    serializer_class = ClienteSerializer
-
-
-class ClienteDetail(generics.RetrieveUpdateDestroyAPIView):
-    queryset = Cliente.objects.all()
-    serializer_class = ClienteSerializer
+from .models import Portal
+from .serializers import PortalSerializer
 
 
 class PortalList(generics.ListCreateAPIView):

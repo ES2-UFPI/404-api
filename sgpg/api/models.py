@@ -1,15 +1,5 @@
 from django.db import models
 
-class Cliente(models.Model):
-
-    class Meta:
-        dt_table: 'Cliente'
-
-    nome = models.CharField(max_length=255)
-    cpf = models.CharField(max_length=11)
-    email = models.CharField(max_length=100)
-    telefone = models.CharField(max_length=14)
-    celular = models.CharField(max_length=14)
 
 class Portal(models.Model):
 
@@ -29,4 +19,9 @@ class Portal(models.Model):
     telefone_2 = models.CharField(max_length=14)
     telefone_3 = models.CharField(max_length=14)
     email = models.CharField(max_length=100)
-    cliente = models.ForeignKey('Cliente', on_delete=models.CASCADE)
+    nome_cliente = models.CharField(max_length=255)
+    cpf_cliente = models.CharField(max_length=11)
+    email_cliente = models.CharField(max_length=100)
+    telefone_cliente = models.CharField(max_length=14)
+    celular_cliente = models.CharField(max_length=14)
+
