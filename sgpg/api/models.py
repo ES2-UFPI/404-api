@@ -18,7 +18,6 @@ class Portal(models.Model):
     bairro = models.CharField(max_length=255)
     rua = models.CharField(max_length=100)
     numero = models.CharField(max_length=5)
-    endereco = models.CharField(max_length=255)
     telefone_1 = models.CharField(max_length=14)
     telefone_2 = models.CharField(max_length=14)
     email = models.CharField(max_length=100)
