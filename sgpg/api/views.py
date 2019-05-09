@@ -5,11 +5,10 @@ from .serializers import PortalSerializer
 
 
 class PortalList(generics.ListCreateAPIView):
-
-    queryset = Portal.objects.all()
-    serializer_class = PortalSerializer
+  queryset = Portal.objects.all()
+  serializer_class = PortalSerializer
 
 
 class PortalDetail(generics.RetrieveUpdateDestroyAPIView):
-    queryset = Portal.objects.all()
-    serializer_class = PortalSerializer
+  queryset = Portal.objects.all()
+  serializer_class = PortalSerializer
