@@ -34,8 +34,8 @@ before_script:
   - psql -c "GRANT ALL PRIVILEGES on DATABASE portal to gag;" -U postgres
   - "sh -e /etc/init.d/xvfb start"
 
-  - python manage.py makemigrations
-  - python manage.py migrate
+  - python sgpg/manage.py makemigrations
+  - python sgpg/manage.py migrate
 
 script:
-  - python manage.py test
+  - python sgpg/manage.py test
