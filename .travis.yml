@@ -3,7 +3,7 @@ language: python
 python:
   - "3.6"
 
-services: mysql
+services: sqlite3
 
 branches:
   only:
@@ -26,7 +26,7 @@ before_script:
   - echo "DB_HOST = 'localhost' " >> .env
   - echo "DB_PORT = '' " >> .env
 
-  - mysql -e 'create database travis_ci_db;'
+  - sqlite3 --version
   - python sgpg/manage.py makemigrations
   - python sgpg/manage.py migrate
 
