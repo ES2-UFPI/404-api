@@ -3,8 +3,7 @@ language: python
 python:
   - "3.6"
 
-addons:
-  - postgresql: "10"
+services: mysql
 
 branches:
   only:
@@ -17,24 +16,17 @@ env:
 
 install:
   - pip install --upgrade pip
-  - pip install -r requirements.
-  - pip install --upgrade pysqlite
+  - pip install -r requirements.txt
 
 before_script:
   - echo "SECRET_KEY=$SECRET_KEY" >> .env
-  - echo "DB_NAME = 'portal'" >> .env
+  - echo "DB_NAME = 'travis_ci_db'" >> .env
   - echo "DB_USER = 'gag'" >> .env
   - echo "DB_PASSWORD =$DB_PASSWORD" >> .env
   - echo "DB_HOST = 'localhost' " >> .env
   - echo "DB_PORT = '' " >> .env
 
-  - psql --version
-  - psql -c "CREATE DATABASE portal;" -U postgres
-  - psql -c "CREATE USER gag PASSWORD '$DB_PASSWORD';" -U postgres
-  - psql -c "ALTER USER gag CREATEDB;" -U postgres
-  - psql -c "GRANT ALL PRIVILEGES on DATABASE portal to gag;" -U postgres
-  - "sh -e /etc/init.d/xvfb start"
-
+  - mysql -e 'create database travis_ci_db;'
   - python sgpg/manage.py makemigrations
   - python sgpg/manage.py migrate
 
