@@ -3,8 +3,6 @@ language: python
 python:
   - "3.6"
 
-services: sqlite3
-
 branches:
   only:
     - gabriel#15
@@ -12,7 +10,7 @@ branches:
     - master
 
 env:
-  - DJANGO=2.2
+  - DJANGO=2.2 DB=sqlite
 
 install:
   - pip install --upgrade pip
