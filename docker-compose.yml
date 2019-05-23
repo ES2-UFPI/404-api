@@ -4,8 +4,8 @@ services:
   web:
     build: .
     command: bash -c "python manage.py makemigrations && python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
-    container_name: sgpg
+    container_name: django_application_image
     volumes:
-      - .:/sgpg
+      - .:/404-portal
     ports:
       - "8000:8000"
